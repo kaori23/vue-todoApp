@@ -1,15 +1,49 @@
-import Vue from 'vue'
 import Vuex from 'vuex'
+import Vue from 'vue'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
+/**
+ * 状態を保持したい変数の管理
+ */
+const state = {
+  todoList: []
+}
+/**
+ * actionsはmutationsを利用して，アクションの処理を実装
+ */
+const actions = {
+  addTodo ({ commit }, todo) {
+    commit('addTodo', todo)
   },
-  mutations: {
+
+
+}
+/**
+ * gettersはstateの値を取得するのに利用
+ */
+const getters = {
+  getTodoList (state) {
+    return state.todoList
   },
-  actions: {
+  getCount (state) {
+    return state.todoList.length
   },
-  modules: {
+
+  
+}
+/**
+ * mutationsは値の移り変わりの処理を実装
+ */
+const mutations = {
+  addTodo (state, todo) {
+    state.todoList.push(todo)
   }
+}
+
+export default new Vuex.Store({
+  state,
+  actions,
+  getters,
+  mutations
 })
