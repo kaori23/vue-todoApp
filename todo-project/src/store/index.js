@@ -1,5 +1,5 @@
-import Vuex from 'vuex'
 import Vue from 'vue'
+import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
@@ -11,36 +11,31 @@ const state = {
 }
 /**
  * actionsはmutationsを利用して，アクションの処理を実装
- */
+*/
 const actions = {
-  addTodo ({ commit }, todo) {
+  addTodo({ commit }, todo) {
     commit('addTodo', todo)
   },
-
-
 }
 /**
  * gettersはstateの値を取得するのに利用
  */
 const getters = {
-  getTodoList (state) {
+  getTodoList(state) {
     return state.todoList
   },
-  getCount (state) {
+  getCount(state) {
     return state.todoList.length
   },
-
-  
 }
 /**
- * mutationsは値の移り変わりの処理を実装
- */
+* mutationsは値の移り変わりの処理を実装
+*/
 const mutations = {
-  addTodo (state, todo) {
+  addTodo(state, todo) {
     state.todoList.push(todo)
   }
 }
-
 export default new Vuex.Store({
   state,
   actions,
